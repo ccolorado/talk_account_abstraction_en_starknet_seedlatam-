@@ -23,9 +23,15 @@ mod Account {
 
   #[external(v0)]
   #[generate_trait]
-  impl ProtocolImpl of PRotocolTrait {
-    fn __execute__(ref self: ContractState, calls:Array<Call>) -> Array<Span<felt252>> { ... }
-    fn __validate__ self: @ContractState, calls:Array<Call>) -> felt252 { ... }
+  impl ProtocolImpl of ProtocolTrait {
+
+    fn __execute__(ref self: ContractState, calls:Array<Call>) -> Array<Span<felt252>> { 
+      only_protocol();
+    }
+
+    fn __validate__ self: @ContractState, calls:Array<Call>) -> felt252 {
+      only_protocol();
+    }
   }
 
   #[generate_trait]
