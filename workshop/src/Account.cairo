@@ -7,7 +7,9 @@ trait IAccount<T> {
 
 #[starknet::contact]
 mod Account {
+  use starknet::get_caller_address;
   use super::Call;
+  use zeroable::Zeroable;
 
   #[storage]
   struct Storage {
@@ -26,4 +28,11 @@ mod Account {
     fn __validate__ self: @ContractState, calls:Array<Call>) -> felt252 { ... }
   }
 
+  #[generate_trait]
+  impl PrivateImpl of PrivateTrait {
+    fn only_protocol(self: @ContractState) {
+      let sender = get_calller_address();
+      assert( sender, is_zero(), 'Account: invalid caller');
+    }
+  }
 }
