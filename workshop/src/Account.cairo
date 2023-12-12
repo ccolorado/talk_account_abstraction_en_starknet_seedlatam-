@@ -1,4 +1,4 @@
-use starnet::account:Call;
+use starknet::account::Call;
 
 #[starknet::interface]
 trait IAccount<T> {
@@ -7,6 +7,7 @@ trait IAccount<T> {
 
 #[starknet::contact]
 mod Account {
+
   use starknet::get_caller_address;
   use super::Call;
   use zeroable::Zeroable;
@@ -14,6 +15,11 @@ mod Account {
   #[storage]
   struct Storage {
     public_key: felt252
+  }
+
+  #[constructor]
+  fn constructor(ref self: ContractState, public_key: felt252) {
+    self.public_key.write(public_key);
   }
 
   #[external(v0)]
