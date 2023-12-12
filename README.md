@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="starknet logo" src="https://github.com/Layer2es/Workshop-Mensajes-Ethereum-Starknet/blob/main/assets/workshop_4.jpg" width="800" >
+  <img alt="starknet logo" src="https://github.com/ccolorado/talk_account_abstraction_en_starknet_seedlatam-/blob/main/images/workshop_4.png" width="800" >
     <h1 style="font-size: larger;">
     <strong> Workshop de Cero a Héroe:</strong>
      <br/>
