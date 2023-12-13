@@ -1,54 +1,52 @@
 <div align="center">
-  <img alt="starknet logo" src="https://github.com/ccolorado/talk_account_abstraction_en_starknet_seedlatam-/blob/main/images/workshop_4.png" width="800" >
-    <h1 style="font-size: larger;">
-    <strong> Workshop de Cero a Héroe:</strong>
-     <br/>
-    <strong> SEED Latam-Layer 2 en Español-StarknetEs </strong> 
+<img alt="starknet logo" src="https://github.com/ccolorado/talk_account_abstraction_en_starknet_seedlatam-/blob/main/images/workshop_4.png" width="800" >
+  <h1 style="font-size: larger;">
+  <strong> Workshop de Cero a Héroe:</strong>
+   <br/>
+  <strong> SEED Latam-Layer 2 en Español-StarknetEs </strong> 
 
-    </h1>
-      <img src="https://github.com/Layer2es/Workshop-Mensajes-Ethereum-Starknet/blob/main/assets/SEED.png" width="40">
-      <img src="https://github.com/Layer2es/Workshop-Mensajes-Ethereum-Starknet/blob/main/assets/Layer2.png" width="40">
-      <img src="https://github.com/Layer2es/Workshop-Mensajes-Ethereum-Starknet/blob/main/assets/StarknetEs.png" width="40"/>
-      <br/><br/>
-  
-  
-  <a href="https://www.youtube.com/live/xw9zuXyrStE?si=4QtHcuT7qb399JLX">
-  <img src="https://img.shields.io/badge/Workshop L2: 1ª Clase-Youtube-red?logo=youtube"/>
-  </a>
-  <a href="https://www.youtube.com/watch?v=RG3pYw18CPo&t=9s">
-  <img src="https://img.shields.io/badge/Workshop L2: 2ª Clase-Youtube-red?logo=youtube"/>
-  </a>
-  <a href="https://www.youtube.com/live/dgV34Pkvm5o?si=X342hdTOCzeCWwaM">
-  <img src="https://img.shields.io/badge/Workshop L2: 3ª Clase-Youtube-red?logo=youtube"/>
-  </a>
-  <a href="https://www.youtube.com/live/_J_3tqv3x5w?si=IEfBomm2_gShWUZv">
-  <img src="https://img.shields.io/badge/Workshop L2: 4ª Clase-Youtube-red?logo=youtube"/>
-  </a>
-      <br/><br/>
-  </a>
-  <a href="https://twitter.com/SEEDLatam">
-  <img src="https://img.shields.io/twitter/follow/SEED Latam?style=social"/>
-  </a>
-  <a href="https://twitter.com/Layer2es">
-  <img src="https://img.shields.io/twitter/follow/Layer 2 en Español?style=social"/>
-  </a>
-  <a href="https://twitter.com/StarkNetEs">
-  <img src="https://img.shields.io/twitter/follow/StarknetEs?style=social"/>
-  </a>
-      <br/><br/>
-  <a href="https://github.com/Layer2es">
-  <img src="https://img.shields.io/badge/Layer2 Es-Github-blue"
-  />
-  <a href="https://github.com/Starknet-Es">
-  <img src="https://img.shields.io/badge/Starknet Es-Github-yellow"
-  />
-  <a href="https://github.com/Layer2es/Workshop-Mensajes-Ethereum-Starknet">
-  <img src="https://img.shields.io/github/stars/Layer2es/Workshop-Mensajes-Ethereum-Starknet?style=social"/>
-  </a>
+  </h1>
+    <img src="https://github.com/ccolorado/talk_account_abstraction_en_starknet_seedlatam-/blob/main/images/SEED.png" width="40">
+    <img src="https://github.com/ccolorado/talk_account_abstraction_en_starknet_seedlatam-/blob/main/images/Layer2.png" width="40">
+    <img src="https://github.com/ccolorado/talk_account_abstraction_en_starknet_seedlatam-/blob/main/images/StarknetEs.png" width="40">
+    <br/><br/>
+
+
+<a href="https://www.youtube.com/live/xw9zuXyrStE?si=4QtHcuT7qb399JLX">
+<img src="https://img.shields.io/badge/Workshop L2: 1ª Clase-Youtube-red?logo=youtube"/>
+</a>
+<a href="https://www.youtube.com/watch?v=RG3pYw18CPo&t=9s">
+<img src="https://img.shields.io/badge/Workshop L2: 2ª Clase-Youtube-red?logo=youtube"/>
+</a>
+<a href="https://www.youtube.com/live/dgV34Pkvm5o?si=X342hdTOCzeCWwaM">
+<img src="https://img.shields.io/badge/Workshop L2: 3ª Clase-Youtube-red?logo=youtube"/>
+</a>
+<a href="https://www.youtube.com/live/_J_3tqv3x5w?si=IEfBomm2_gShWUZv">
+<img src="https://img.shields.io/badge/Workshop L2: 4ª Clase-Youtube-red?logo=youtube"/>
+</a>
+    <br/><br/>
+</a>
+<a href="https://twitter.com/SEEDLatam">
+<img src="https://img.shields.io/twitter/follow/SEED Latam?style=social"/>
+</a>
+<a href="https://twitter.com/Layer2es">
+<img src="https://img.shields.io/twitter/follow/Layer 2 en Español?style=social"/>
+</a>
+<a href="https://twitter.com/StarkNetEs">
+<img src="https://img.shields.io/twitter/follow/StarknetEs?style=social"/>
+</a>
+    <br/><br/>
+<a href="https://github.com/Layer2es">
+<img src="https://img.shields.io/badge/Layer2 Es-Github-blue"
+/>
+<a href="https://github.com/Starknet-Es">
+<img src="https://img.shields.io/badge/Starknet Es-Github-yellow"
+/>
+<a href="https://github.com/Layer2es/Workshop-Mensajes-Ethereum-Starknet">
+<img src="https://img.shields.io/github/stars/Layer2es/Workshop-Mensajes-Ethereum-Starknet?style=social"/>
+</a>
 
 </div>
-
-TODO: Update Hero image
 
 # Why and how Account Abstraction is important.
 * Signature Automation is not something blockchain tech do naturally.
@@ -117,8 +115,8 @@ _Externally Owned accounts_ are not present on Starknet
 * Starknet delegate call
 
 1. Execute and Validate
-These methods *are meant to be executed by the starknet protocol*, but are public for everyone.
-`__validate__`: Will check that the signature of a transaction is valid, not that the `tx` will pass.
+   These methods *are meant to be executed by the starknet protocol*, but are public for everyone.
+   `__validate__`: Will check that the signature of a transaction is valid, not that the `tx` will pass.
    This method returns a _short string_ `VALID` rather than a boolean value
    * Some Restrictions apply, to protect the sequencer of a DoS attacks.
    [Starknet Docs: Limitations on the validate function](https://docs.starknet.io/documentation/architecture_and_concepts/Accounts/validate_and_execute/#validate_limitations)
@@ -173,13 +171,17 @@ fn_name(param1_type,param2_type,...)->output_type
 Complex types like `u256`, `Tuples`, `Structs`, and `Enums` are broken down into their primitives.
 e.g. `u256` -> `(u128, u128)`
 
-| Structure | item name | Signature pattern                                |
+
+
+| Structure | Item Name | Signature pattern                                |
+| --------- | --------- | ------------------------------------------------ |
 | Tuples    | elements  | `(el1_type,el2_type,el3_type,...,elN_type)`      |
 | Structs   | fields    | `(F1_type,F2_type,F3_type,...,FN_type)`          |
 | Enums     | variants  | `E(Var1_type,Var2_type,Var3_type,...,VarN_type)` |
 
 *IMPORTANT NOTICE:* Enums require a leading `E` to avoid collisions between tuples or structs
 Example:
+
 ```cairo
 #[derive(Drop, Serde)]
 enum MyEnum {
@@ -227,13 +229,52 @@ trait IAccount {
 }
 
 ```python
-hex(
-    0x0 ^OR starknet_keccack(`supports_interface(felt252)->E(((),())`.encode())
-   ^OR starknet_keccack(`is_valid_signature(felt252, Array<felt252>)->E((),())`.encode())
-   ^OR starknet_keccack(`__execute__(Array<(ContractAddress,felt252,Array<felt252>)>)->Array<(@Array<felt252>)>`.encode())
-   ^OR starknet_keccack(`__validate__(Array<(ContractAddress,felt252,Array<felt252>)>)->felt252`.encode())
-   ^OR starknet_keccack(`__validate_declare__(felt252)->felt252`.encode())
-)
+
+
+from starkware.starknet.public.abi import starknet_keccak
+
+extended_function_selector_signatures_list = [
+    'supports_interface(felt252)->E((),())',
+    'is_valid_signature(felt252,Array<felt252>)->E((),())',
+    '__execute__(Array<(ContractAddress,felt252,Array<felt252>)>)->Array<(@Array<felt252>)>',
+    '__validate__(Array<(ContractAddress,felt252,Array<felt252>)>)->felt252',
+    '__validate_declare__(felt252)->felt252'
+]
+
+
+def main():
+    interface_id = 0x0
+    for function_signature in extended_function_selector_signatures_list:
+        function_id = starknet_keccak(function_signature.encode())
+        interface_id ^= function_id
+    print('IAccount ID:')
+    print(hex(interface_id))
+
+
+
+signature = 0x0
+signature ^= starknet_keccack(extended_function_selector_signatures_list[0].encode())
+signature ^= starknet_keccack(extended_function_selector_signatures_list[1].encode())
+//         ...
+signature ^= starknet_keccack(extended_function_selector_signatures_list[N].encode())
+
+hex(signature)
+
+if __name__ == "__main__":
+    main()
+
+
+def main():
+    interface_id = 0x0
+    for function_signature in extended_function_selector_signatures_list:
+    function_id = starknet_keccak(function_signature.encode())
+    interface_id ^= function_id
+    print('IAccount ID:')
+    print(hex(interface_id))
+
+
+```
+
 
 
 # Practice
