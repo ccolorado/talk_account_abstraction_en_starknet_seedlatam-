@@ -48,28 +48,26 @@
 
 </div>
 
-# Why and how Account Abstraction is important.
-* Signature Automation is not something blockchain tech do naturally.
-* Browsers can do a bunch of things, but they are limited, one thing that they can't  sign transactions.
-  That's why wallets are an add-on
+# Cual es la importancia de Abstracción de Cuentas.
 
-Use cases
-* Payment atomization
-* Signing efficiency (games)
-* Alternative 'login' options (biometric id) 
-* Automatic payments
-* account delegation, (dead man switch, testaments)
+* El automatizado de firmas no es algo a lo que se presten las tecnologías blockchain
+* Los navegadores tiene que usar wallets a manera de extensiones para poder gestionar
+  firmas.
+* Si no hay algún tipo de estándar los navegadores nunca adoptaran un estándar como tal.
 
+# Casos de uso:
+* Automatización de pagos (subscripciones)
+* Manejo de Sesiones.
+* Automatización Multifactor (geométricos)
+* Delegación de cuestas, (testamentos)
+* Recuperación social
 
-# What is needed
+# Especificaciones disponibles
+   * `eip-165`
+   * `SNIP-5`
+   * `SNIP-6`
 
-# How is it done ...
-Programmatically ?
-   * eip-165
-   * SNIP-5
-   * SNIP-6
-
-# Account abstraction Interface
+# Interfase de Contrato de Abstracción de cuentas.
 ```cairo
 struct Call {
     to: ContractAddress,
@@ -92,45 +90,50 @@ trait IAccountAddon {
     fn __validate_deploy__(class_hash: felt252, salt: felt252, public_key: felt252) -> felt252;
     fn public_key() -> felt252;
 }
-
 ```
 
-_Externally Owned accounts_ are not present on Starknet
+Tengamos en cuenta que las _Externally Owned accounts_ (EOA's) no figuran en la blockchain
+de Starknet de la misma manera que en la de ethereum
 
- *There are restrictions on what you can do inside the __validate__ method to protect the Sequen cer against Denial of Service (DoS) attacks [3].* 
+*Como la funcion __validate__ va ir directamente al sequencer, su uso debe estar limitado,
+para evitar crear un vector de ataque de denegacion de servicio (DoS)* 
 
-# Transaction anatomy:
-   Target SmartContract:
-   Function Selector:
-   Argument(s) payload:
+# Anatomía de una transacción:
+   Smart Contract Destino
+   Selector de funcion
+   Argumento(s)
 
-# Transaction's life cycle:
-1. A transaction is queued
-2. A transaction is validated
-3. One or multiple  transactions are executed
-4. Return message(es) are serialized as felts
+# Ciclo de vida de una transacción.
+1. Una transacción se forma en la linea.
+2. Es validada.
+3. Se ejecuta sola o con multiples transacciones.
+4. Regresa o no valores de retorno serial izados en felts.
 
-# Basic Usage:
-* Signing strings (transactions)
-* Starknet delegate call
+# Uso Basico:
+1 Firmado de transacción.
 
-1. Execute and Validate
-   These methods *are meant to be executed by the starknet protocol*, but are public for everyone.
-   `__validate__`: Will check that the signature of a transaction is valid, not that the `tx` will pass.
-   This method returns a _short string_ `VALID` rather than a boolean value
-   * Some Restrictions apply, to protect the sequencer of a DoS attacks.
-   [Starknet Docs: Limitations on the validate function](https://docs.starknet.io/documentation/architecture_and_concepts/Accounts/validate_and_execute/#validate_limitations)
+1. Validación y ejecución.
 
-`__execute__`:
-   Return types A serialized span of felts will be returned by the starknet protocol.
+   `__validate__`:  Validara la firma de las transacciones como validas en cuanto a
+   autorización, si la tasación tiene algún defecto esto no sera discernido aquí. 
+   Regresa el `string` corto `'VALID'` en lugar de un valor booleano.
+   _IMPORTANTE_: Estos métodos están diseñados para ser ejecutados por el protocolo y no
+       necesariamente nosotros los usuarios.
 
-`is_valid_signature`: Is not part of the protocol but a helper artefact for error management.
-`supports_interface`: TODO: Review why this SNIP-5 requirement implies that it adheres to the SNIP-6
+   Mayor información sobre las limitaciones de la función `__validate__` en la  [documentación
+   oficial de Starknet](https://docs.starknet.io/documentation/architecture_and_concepts/Accounts/validate_and_execute/#validate_limitations)
+   
+2.  `__execute__`:
+   Regresa un arreglo de `span` serializado de felts 
 
-`__validate_declare__`: SNIP-6 is enough to guarantee that a smart contract is in fact an account contract,
+3. `is_valid_signature`: Aunque no es usada por el protocolo resulta una función lo
+   suficientemente útil para el la integración de los contratos Abstracción de cuentas que
+   termino siendo parte del `SNIP-6`.
 
+4. `supports_interface`: Función que permite probar si un contrato tiene implementada una
+   interfaz.
 
-# Enhanced Account Abstraction Interface
+# Interfase de Abstracción de cuentas aumentada:
 
 ```cairo
 /// @title IAccount Additional account contract interface
@@ -152,35 +155,36 @@ trait IAccountAddon {
    fn public_key() -> felt252;
 }
 ```
+Estas funciones aunque no son parte del estándar son útiles para la gestión de contratos
+de Abstracción de Cuentas. Lo cual no es necesariamente relevante para usuarios finales,
+pero si para desarrolladores. (_Counterfactual deployment_)
 
-# Deployments
+# Transacciones:
 
-_Counterfactual deployment_: Mechanism to deploy an account contract without relying on another account_contract to pay
-for the related gas fee.
+## Selector de funciones
+Un selector de funciones es derivado del el nombre, argumentos y valor de retorno de una
+función ( también conocido como firma de función ) y hasheado con la función de que
+keccak.
 
-# Transactions:
-
-## Function Selector
-Its the `starknet_keccak` of the function name (ASCII encoded) n the format:
+Es *importante notar:* que todos los espacios son removidos de la forma de función. 
 ```cairo
 fn_name(param1_type,param2_type,...)->output_type
 ```
-*IMPORTANT NOTICE:* Spaces are taken out from definitions
 
-### Special Types
-Complex types like `u256`, `Tuples`, `Structs`, and `Enums` are broken down into their primitives.
+### Tipos de datos compuestos.
+Los tipos de datos compuestos como, `u256`, `Tuples`, `Structs`, and `Enums` son
+especificados de manera mas granular
 e.g. `u256` -> `(u128, u128)`
 
 
 
-| Structure | Item Name | Signature pattern                                |
-| --------- | --------- | ------------------------------------------------ |
-| Tuples    | elements  | `(el1_type,el2_type,el3_type,...,elN_type)`      |
-| Structs   | fields    | `(F1_type,F2_type,F3_type,...,FN_type)`          |
-| Enums     | variants  | `E(Var1_type,Var2_type,Var3_type,...,VarN_type)` |
+| Estructura | Nombre del elemento | Formato de firma                                 |
+| ---------  | ---------           | ------------------------------------------------ |
+| Tuples     | elementos           | `(el1_type,el2_type,el3_type,...,elN_type)`      |
+| Structs    | campos              | `(F1_type,F2_type,F3_type,...,FN_type)`          |
+| Enums      | variantes           | `E(Var1_type,Var2_type,Var3_type,...,VarN_type)` |
 
-*IMPORTANT NOTICE:* Enums require a leading `E` to avoid collisions between tuples or structs
-Example:
+Es *importante notar:* Que la firma de los `Enums` require una `E` al principio para evitar colisiones con las otras estructuras.
 
 ```cairo
 #[derive(Drop, Serde)]
@@ -198,7 +202,7 @@ struct MyStruct {
 fn foo(param1: @MyEnum, param2: MyStruct) -> bool; 
 ```
 
-The signature is:
+La firma seria
 
 ```cairo
   foo(@E((felt252,(u128,u128)),Array<u128>),(E((felt252,(u128,u128)),Array<u128>),felt252))->E((),())
@@ -275,18 +279,18 @@ def main():
 
 ```
 
+# Practica
 
+## Inicio
 
-# Practice
+https://github.com/starknet-edu/aa-workshop
 
-## Setup
+1. Crear proyecto
+`scarb new aa`
 
-1. Create Project
-scarb new aa
-
-2. Set up environment for Smart Contract development (instead of just code)
+2. Configurar scarb con compatibilidad de smart contacts.
 ```toml
-// aa/Scarb.toml
+# aa/Scarb
 
 [dependencies]
 starkent = "2.2.0"
@@ -297,6 +301,7 @@ starkent = "2.2.0"
 3. Turn the sample script/code into a starknet contract
 
 ```cairo
+// aa/src/account.cairo
 #[starknet::contract]
 mod Account {
 
@@ -306,8 +311,3 @@ mod Account {
    }
 }
 ```
-
-
-
-
-
