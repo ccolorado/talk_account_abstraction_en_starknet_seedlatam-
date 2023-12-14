@@ -58,7 +58,7 @@
 # Casos de uso:
 * Automatización de pagos (subscripciones)
 * Manejo de Sesiones.
-* Automatización Multifactor (geométricos)
+* Automatización Multifactor (biométricos)
 * Delegación de cuestas, (testamentos)
 * Recuperación social
 
